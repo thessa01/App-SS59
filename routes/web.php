@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controller\JabatanController;
+use App\Http\Controller\MahasiswaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +19,16 @@ Route::get('/', function () {
     return view('layouts.master');
 })->middleware('auth');
 
+Route::get('/login', function () {
+    return view('layouts.login');
+});
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::middleware('auth')->group(function () {
+    // manajemen jabatan
+    
+    
+});
